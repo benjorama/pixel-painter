@@ -17,6 +17,9 @@ function createGridCell() {
   gridCell.setAttribute( "class", "gridCell" );
   gridCell.style.border = "1px solid black";
   gridCell.style.height = GRID_CELL_SIZE;
+  gridCell.addEventListener( "mouseover", () => {
+    gridCell.style.backgroundColor = "black";
+  }); 
   return gridCell;
 }
 
@@ -32,3 +35,6 @@ function createGrid( width, height ) {
 }
 
 createGrid( 16, 16 );
+
+
+
