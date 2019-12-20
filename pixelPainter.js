@@ -1,3 +1,4 @@
+const DEFAULT_GRID_SIZE = 16;
 const GRID_CELL_SIZE = "20px";
 
 function createGridContainer( width ) {
@@ -34,6 +35,22 @@ function createGrid( width, height ) {
   document.body.appendChild( gridContainer );
 }
 
+function populateDropDownSize() {
+  const dropDownSelector = document.querySelectorAll( ".canvasSize select" );
+  for ( let i = 1; i <= 128; i++ ) {
+    dropDownSelector.forEach( element => {
+      const option = document.createElement( "option" );
+      option.value = i;
+      option.text = i;
+      if ( option.value == DEFAULT_GRID_SIZE ) {
+        option.setAttribute( "selected", "selected" );
+      }
+      element.appendChild( option );
+    });
+  }
+}
+
+populateDropDownSize();
 createGrid( 16, 16 );
 
 
