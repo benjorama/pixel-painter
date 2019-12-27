@@ -25,14 +25,20 @@ function createGridCell() {
 }
 
 function createGrid( width, height ) {
-  const gridContainer = createGridContainer( width );
-  for ( let i = 0; i < width; i++ ) {
-    for ( let j = 0; j < height; j++ ) {
-      const gridCell = createGridCell();
-      gridContainer.appendChild( gridCell );
+  if ( !document.querySelector( ".gridContainer" ) ) {
+    const gridContainer = createGridContainer( width );
+    for ( let i = 0; i < width; i++ ) {
+      for ( let j = 0; j < height; j++ ) {
+        const gridCell = createGridCell();
+        gridContainer.appendChild( gridCell );
+      }
     }
+    document.body.appendChild( gridContainer );
+  } else {
+    const gridContainer = document.querySelector( ".gridContainer" );
+    gridContainer.remove();
+    createGrid( width, height );    
   }
-  document.body.appendChild( gridContainer );
 }
 
 function populateDropDownSize() {
