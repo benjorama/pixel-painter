@@ -51,7 +51,12 @@ function populateDropDownSize() {
 }
 
 populateDropDownSize();
-createGrid( 16, 16 );
+const createCanvasButton = document.querySelector( ".canvasSize button" );
+createCanvasButton.addEventListener( "click", () => {
+  const width = document.querySelector( ".canvasSize #width" ).value;
+  const height = document.querySelector( ".canvasSize #height" ).value;
+  createGrid( width, height );
+});
 
 
 
