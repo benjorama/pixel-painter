@@ -1,6 +1,4 @@
-const DEFAULT_GRID_SIZE = 16;
 const GRID_CELL_SIZE = "20px";
-
 function createGridContainer( size ) {
   const gridContainer = document.createElement( "div" );
   gridContainer.setAttribute( "class", "gridContainer" );
@@ -24,7 +22,8 @@ function createGridCell() {
   return gridCell;
 }
 
-function createGrid( size ) {
+function createGrid() {
+  const size = document.querySelector( ".canvasSize select" ).value;
   if ( !document.querySelector( ".gridContainer" ) ) {
     const gridContainer = createGridContainer( size );
     for ( let i = 0; i < size; i++ ) {
@@ -42,6 +41,7 @@ function createGrid( size ) {
 }
 
 function populateDropDownSize() {
+  const DEFAULT_GRID_SIZE = 16;
   const dropDownSelector = document.querySelector( ".canvasSize select" );
   for ( let i = 1; i <= 128; i++ ) {
     const option = document.createElement( "option" );
@@ -55,10 +55,10 @@ function populateDropDownSize() {
 }
 
 populateDropDownSize();
+createGrid();
 const createCanvasButton = document.querySelector( ".canvasSize button" );
 createCanvasButton.addEventListener( "click", () => {
-  const size = document.querySelector( ".canvasSize select" ).value;
-  createGrid( size );
+  createGrid();
 });
 
 
