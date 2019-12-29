@@ -1,3 +1,5 @@
+let mouseDown = false;
+
 function createGridContainer( size ) {
   const gridContainer = document.createElement( "div" );
   gridContainer.setAttribute( "class", "gridContainer" );
@@ -16,8 +18,16 @@ function createGridCell() {
   const gridCell = document.createElement( "div" );
   gridCell.setAttribute( "class", "gridCell" );
   gridCell.style.border = "1px solid black";
-  gridCell.addEventListener( "mouseover", () => {
+  gridCell.addEventListener( "mousedown", () => {
+    mouseDown = true;
     gridCell.style.backgroundColor = "black";
+  });
+  gridCell.addEventListener( "mouseup", () => {
+    mouseDown = false;
+  });
+  gridCell.addEventListener( "mouseover", () => {
+    if ( mouseDown )
+      gridCell.style.backgroundColor = "black";
   }); 
   return gridCell;
 }
@@ -60,6 +70,3 @@ const createCanvasButton = document.querySelector( ".canvasSize button" );
 createCanvasButton.addEventListener( "click", () => {
   createGrid();
 });
-
-
-
