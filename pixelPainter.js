@@ -20,14 +20,14 @@ function createGridCell() {
   gridCell.style.border = "1px solid black";
   gridCell.addEventListener( "mousedown", () => {
     mouseDown = true;
-    gridCell.style.backgroundColor = "black";
+    gridCell.style.backgroundColor = getCellColor();
   });
   gridCell.addEventListener( "mouseup", () => {
     mouseDown = false;
   });
   gridCell.addEventListener( "mouseover", () => {
     if ( mouseDown )
-      gridCell.style.backgroundColor = "black";
+      gridCell.style.backgroundColor = getCellColor();
   }); 
   return gridCell;
 }
@@ -62,6 +62,32 @@ function populateDropDownResolution() {
     }
     dropDownSelector.appendChild( option );
   }
+}
+
+function getCellColor() {
+  const colorSettings = document.getElementsByName( "color" );
+  let color = "black";
+  colorSettings.forEach( element => {
+    if ( element.checked ) {
+      if ( element.value === "random" )
+        color = getRandomColor();
+      if ( element.value === "grayscale" ) {
+        color = "black";
+      }
+    }
+  });
+  return color;
+}
+
+function getRandomColor() {
+  const redComponent = Math.floor( Math.random() * 256 );
+  const greenComponent = Math.floor( Math.random() * 256 );
+  const blueComponent = Math.floor( Math.random() * 256 );
+  const alphaComponent = Math.random();
+  return `rgba(${redComponent}, 
+    ${greenComponent}, 
+    ${blueComponent}, 
+    ${alphaComponent})`;
 }
 
 populateDropDownResolution();
