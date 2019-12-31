@@ -1,5 +1,3 @@
-let mouseDown = false;
-
 function createGridContainer( size ) {
   const gridContainer = document.createElement( "div" );
   gridContainer.setAttribute( "class", "gridContainer" );
@@ -14,20 +12,27 @@ function createGridContainer( size ) {
   return gridContainer;
 }
 
+let mouseDown = false;
 function createGridCell() {
+  let alpha = 0.0;
   const gridCell = document.createElement( "div" );
   gridCell.setAttribute( "class", "gridCell" );
   gridCell.style.border = "1px solid black";
   gridCell.addEventListener( "mousedown", () => {
     mouseDown = true;
-    gridCell.style.backgroundColor = getCellColor();
+    console.log(mouseDown);
+    alpha += 0.1;
+    gridCell.style.backgroundColor = getCellColor( alpha );
   });
   gridCell.addEventListener( "mouseup", () => {
     mouseDown = false;
   });
   gridCell.addEventListener( "mouseover", () => {
-    if ( mouseDown )
-      gridCell.style.backgroundColor = getCellColor();
+    console.log(mouseDown);
+    if ( mouseDown ) {
+      alpha += 0.1;
+      gridCell.style.backgroundColor = getCellColor( alpha );
+    }
   }); 
   return gridCell;
 }
@@ -64,7 +69,7 @@ function populateDropDownResolution() {
   }
 }
 
-function getCellColor() {
+function getCellColor( alpha ) {
   const colorSettings = document.getElementsByName( "color" );
   let color = "black";
   colorSettings.forEach( element => {
@@ -72,7 +77,8 @@ function getCellColor() {
       if ( element.value === "random" )
         color = getRandomColor();
       if ( element.value === "grayscale" ) {
-        color = "black";
+        console.log("alpha: " + alpha );
+        color = `rgba( 0.0, 0.0, 0.0, ${alpha})`;
       }
     }
   });
