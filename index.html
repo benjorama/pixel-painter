@@ -3,16 +3,19 @@
   <head lang="en">
     <title>Pixel Painter</title>
     <meta charset="utf-8" />
+    <link href="reset.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <h1>Pixel Painter</h1>
     <div class="options">
       <label for="resolution">Resolution</label>
       <select id="resolution"></select>
-      <label for="grayscale">grayscale</label>
-      <input type="radio" name="color" id="grayscale" value="grayscale">
-      <label for="random">random</label>
-      <input type="radio" name="color" id="random" value="random">
+      <div class="colorOptions">
+        <label for="grayscale">grayscale</label>
+        <input type="radio" name="color" id="grayscale" value="grayscale">
+        <label for="random">random</label>
+        <input type="radio" name="color" id="random" value="random">
+      </div>
       <button>Refresh Canvas</button>
     </div>
   </body>
