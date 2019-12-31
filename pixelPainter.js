@@ -80,14 +80,11 @@ function getCellColor() {
 }
 
 function getRandomColor() {
-  const redComponent = Math.floor( Math.random() * 256 );
-  const greenComponent = Math.floor( Math.random() * 256 );
-  const blueComponent = Math.floor( Math.random() * 256 );
-  const alphaComponent = Math.random();
-  return `rgba(${redComponent}, 
-    ${greenComponent}, 
-    ${blueComponent}, 
-    ${alphaComponent})`;
+  return `rgba(
+    ${Math.floor( Math.random() * 256 )}, 
+    ${Math.floor( Math.random() * 256 )}, 
+    ${Math.floor( Math.random() * 256 )}, 
+    ${1})`;
 }
 
 populateDropDownResolution();
