@@ -38,7 +38,7 @@ function createGridCell() {
 }
 
 function createGrid() {
-  const size = document.querySelector( ".options select" ).value;
+  const size = document.querySelector( ".resolutionOption select" ).value;
   if ( !document.querySelector( ".gridContainer" ) ) {
     const gridContainer = createGridContainer( size );
     for ( let i = 0; i < size; i++ ) {
@@ -57,7 +57,7 @@ function createGrid() {
 
 function populateDropDownResolution() {
   const DEFAULT_RESOLUTION = 16;
-  const dropDownSelector = document.querySelector( ".options select" );
+  const dropDownSelector = document.querySelector( ".resolutionOption select" );
   for ( let i = 1; i <= 128; i++ ) {
     const option = document.createElement( "option" );
     option.value = i;
