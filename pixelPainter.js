@@ -4,6 +4,7 @@ function createGridContainer( size ) {
   gridContainer.style.display = "grid";
   gridContainer.style.width = "450px";
   gridContainer.style.height = "450px";
+  gridContainer.style.margin = "auto";
   let gridTemplateColumns = "";
   for ( let i = 0; i < size; i++ ) {
     gridTemplateColumns += "1fr ";
@@ -95,7 +96,7 @@ function getRandomColor() {
 
 populateDropDownResolution();
 createGrid();
-const createCanvasButton = document.querySelector( ".options button" );
+const createCanvasButton = document.querySelector( "button" );
 createCanvasButton.addEventListener( "click", () => {
   createGrid();
 });
