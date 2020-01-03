@@ -1,3 +1,8 @@
+body {
+    background-image: url("./canvas-background.jpg");
+    background-size: cover;
+}
+
 h1 {
     font-size: larger;
     font-weight: bold;
