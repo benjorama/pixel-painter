@@ -2,8 +2,8 @@ function createGridContainer( size ) {
   const gridContainer = document.createElement( "div" );
   gridContainer.setAttribute( "class", "gridContainer" );
   gridContainer.style.display = "grid";
-  gridContainer.style.width = "450px";
-  gridContainer.style.height = "450px";
+  gridContainer.style.width = "75vh";
+  gridContainer.style.height = "75vh";
   gridContainer.style.margin = "auto";
   let gridTemplateColumns = "";
   for ( let i = 0; i < size; i++ ) {
