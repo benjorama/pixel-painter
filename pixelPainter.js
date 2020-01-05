@@ -81,6 +81,8 @@ function getCellColor( alpha ) {
         console.log("alpha: " + alpha );
         color = `rgba( 0.0, 0.0, 0.0, ${alpha})`;
       }
+      if ( element.value === "default" )
+        color = "black";
     }
   });
   return color;
